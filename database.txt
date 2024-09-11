@@ -1,0 +1,53 @@
+1.SELECT `pname` FROM `p`WHERE p_city="London";
+2.SELECT MAX(weight),pname FROM p
+3.SELECT pname,pno FROM p WHERE color="red"
+ 4.SELECT DISTINCT s.sname,s.s_city FROM `s` JOIN sp p ON s.sno=p.sno WHERE p.qty>200
+5.SELECT MAX(weight) 
+	from P
+	where <(select max(weight) from p);
+
+6.SELECT s.sno,sp.qty
+	FROM p,s,sp
+	WHERE s.sno=sp.sno
+	AND p.pno=sp.pno
+	AND p.weight=MAX(weight);
+
+7.SELECT p.pname,sp.qty
+	FROM p,sp,s
+	WHERE s.sno=sp.sno
+	AND p.pno=sp.pno
+	AND p.color="red";
+
+8.SELECT p.p_city,s.sname,sp.qty
+	FROM p,sp,s
+	WHERE s.sno=sp.sno
+	AND p.pno=sp.pno
+	AND s.s_status<30;
+9.SELECT s.sname,SUM(sp.qty)
+	FROM s,sp
+	WHERE s.sno=sp.sno
+	GROUP BY s.name;
+
+10.SELECT p.pname,SUM(sp.qty)
+	FROM p,sp
+	WHERE p.pno=sp.pno
+	GROUP BY p.pname;
+
+11.SELECT p.pname,SUM(sp.qty) AS Total_Qty
+	FROM p,sp
+	WHERE s.sno=sp.sno
+	AND p.pno=sp.pno
+	GROUP BY p.pname
+
+12.SELECT s.sname,SUM(sp.qty)AS Total_Qty
+	FROM s,sp
+	WHERE s.sno=sp.sno
+	AND s.sno<'s4'
+	GROUP BY s.sno
+13.SELECT s.sname,SUM(sp.qty)AS Total_qty
+	FROM s,sp
+    WHERE s.sno=sp.sno
+    AND s.s_status=20
+    GROUP BY s.sname
+
+
