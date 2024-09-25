@@ -35,4 +35,13 @@ Practicle : 5
  - CREATE TABLE Dept(Dept_Id int PRIMARY KEY, Dept_name varchar(35), Dept_location varchar(50));
  - CREATE TABLE Emp(Emp_Id int PRIMARY KEY, Emp_name varchar(35), Emp_Dept_Id int, Emp_boss_id int,Emp_salary LONGTEXT, FOREIGN KEY(Emp_Dept_Id) REFERENCES dept(Dept_Id));
 
+Practical : 6
+-  SELECT emp.emp_name as "Emp Name", dept.dept_name as "Emp Department", boss.emp_name as "Boss name" ,bdept.dept_name from emp,dept,emp as boss ,dept as bdept WHERE dept.dept_id = emp.emp_dept_id and boss.emp_id = emp.emp_boss_id and bdept.dept_id = boss.emp_dept_id;
+
+-   select emp.emp_name as Employee_Name,dept.dept_name as Employee_Department,bossname.emp_name as Boss_Name,bossd.dept_name as Boss_Department from emp,dept,emp as bossname,dept as bossd where emp.emp_dept_id=dept.dept_id and emp.emp_boss_id=bossname.emp_id and bossname.emp_dept_id=bossd.dept_id and emp.emp_salary>bossname.emp_salary;
+
+Practical 7 : 
+- select dept.dept_name,max(emp.emp_salary) from dept,emp where dept.dept_id = emp.emp_dept_id group by dept.dept_id;
+-select dept.dept_name,count(emp.emp_id) from dept,emp where dept.dept_id = emp.emp_dept_id group by dept.dept_id;
+
 
